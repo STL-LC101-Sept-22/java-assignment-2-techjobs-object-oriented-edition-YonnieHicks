@@ -84,33 +84,34 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
+
     @Override
     public String toString() {
         String emptyField = "Data not available";
-        if(name == null && employer == null && location == null && positionType == null && coreCompetency == null) {
+        if (name == null && employer == null && location == null && positionType == null && coreCompetency == null) {
             return "OOPS! This job does not seem to exist.";
         }
-        if(name == null || name.isEmpty()) {
+        if (name == null || name.isEmpty()) {
             name = emptyField;
         }
-        if(employer == null || employer.getValue().isEmpty()) {
+        if (employer == null || employer.getValue().isEmpty()) {
             employer = new Employer(emptyField);
         }
-        if(location == null || location.getValue().isEmpty()) {
+        if (location == null || location.getValue().isEmpty()) {
             location = new Location(emptyField);
         }
-        if(positionType == null || positionType.getValue().isEmpty()) {
+        if (positionType == null || positionType.getValue().isEmpty()) {
             positionType = new PositionType(emptyField);
         }
-        if(coreCompetency == null || coreCompetency.getValue().isEmpty()) {
+        if (coreCompetency == null || coreCompetency.getValue().isEmpty()) {
             coreCompetency = new CoreCompetency(emptyField);
         }
         return "\n" +
                 "ID: " + id + "\n" +
                 "Name: " + name + "\n" +
-                "Employer: " + employer + "\n" +
-                "Location: " + location + "\n" +
-                "Position Type: " + positionType + "\n" +
-                "Core Competency: " + coreCompetency + "\n";
+                "Employer: " + employer.getValue() + "\n" +
+                "Location: " + location.getValue() + "\n" +
+                "Position Type: " + positionType.getValue() + "\n" +
+                "Core Competency: " + coreCompetency.getValue() + "\n";
     }
 }
