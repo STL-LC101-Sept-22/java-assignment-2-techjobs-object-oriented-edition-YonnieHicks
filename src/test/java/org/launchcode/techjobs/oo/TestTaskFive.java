@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo;
 
+
 import mockit.Expectations;
 import mockit.Mocked;
 import org.junit.Assert;
@@ -18,7 +19,7 @@ import static org.junit.Assert.fail;
 public class TestTaskFive extends AbstractTest {
 
     @Test
-    public void testTestToStringStartsAndEndsWithNewLineExists () throws ClassNotFoundException {
+    public void testTestToStringStartsAndEndsWithNewLineExists() throws ClassNotFoundException {
         Class jobTestClass = getClassByName("test.JobTest");
         Method testToStringStartsAndEndsWithNewLineMethod = null;
 
@@ -30,13 +31,14 @@ public class TestTaskFive extends AbstractTest {
     }
 
     @Test
-    public void testTestToStringStartsAndEndsWithNewLineCallsToString (@Mocked Job job) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public void testTestToStringStartsAndEndsWithNewLineCallsToString(@Mocked Job job) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         Class jobTestClass = getClassByName("test.JobTest");
         JobTest jobTest = (JobTest) jobTestClass.getConstructor().newInstance();
         Method testToStringStartsAndEndsWithNewLineMethod = jobTestClass.getMethod("testToStringStartsAndEndsWithNewLine");
 
         new Expectations() {{
-            job.toString(); minTimes = 1;
+            job.toString();
+            minTimes = 1;
         }};
 
         try {
@@ -47,13 +49,14 @@ public class TestTaskFive extends AbstractTest {
     }
 
     @Test
-    public void testTestToStringStartsAndEndsWithNewLineCallsAssertions (@Mocked Assert mockedAssert) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
+    public void testTestToStringStartsAndEndsWithNewLineCallsAssertions() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
         Class jobTestClass = getClassByName("test.JobTest");
         JobTest jobTest = (JobTest) jobTestClass.getConstructor().newInstance();
         Method testToStringStartsAndEndsWithNewLineMethod = jobTestClass.getMethod("testToStringStartsAndEndsWithNewLine");
 
         new Expectations() {{
-            Assert.assertEquals('\n', '\n'); minTimes = 2;
+            assertEquals('\n', '\n');
+            minTimes = 2;
         }};
 
         testToStringStartsAndEndsWithNewLineMethod.invoke(jobTest);
@@ -63,13 +66,13 @@ public class TestTaskFive extends AbstractTest {
     public void testToStringStartsAndEndsWithNewLine() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         Job job = createJob("Web Developer", "LaunchCode", "StL", "Back-end developer", "Java");
         char firstChar = job.toString().charAt(0);
-        char lastChar = job.toString().charAt(job.toString().length()-1);
+        char lastChar = job.toString().charAt(job.toString().length() - 1);
         assertEquals(firstChar, '\n');
         assertEquals(lastChar, '\n');
     }
 
     @Test
-    public void testTestToStringContainsCorrectLabelsAndDataExists () throws ClassNotFoundException {
+    public void testTestToStringContainsCorrectLabelsAndDataExists() throws ClassNotFoundException {
         Class jobTestClass = getClassByName("test.JobTest");
         Method testToStringContainsCorrectLabelsAndDataMethod = null;
 
@@ -81,13 +84,14 @@ public class TestTaskFive extends AbstractTest {
     }
 
     @Test
-    public void testTestToStringContainsCorrectLabelsAndDataCallsToString (@Mocked Job job) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public void testTestToStringContainsCorrectLabelsAndDataCallsToString(@Mocked Job job) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         Class jobTestClass = getClassByName("test.JobTest");
         JobTest jobTest = (JobTest) jobTestClass.getConstructor().newInstance();
         Method testToStringContainsCorrectLabelsAndDataMethod = jobTestClass.getMethod("testToStringContainsCorrectLabelsAndData");
 
         new Expectations() {{
-            job.toString(); minTimes = 1;
+            job.toString();
+            minTimes = 1;
         }};
 
         try {
@@ -98,13 +102,13 @@ public class TestTaskFive extends AbstractTest {
     }
 
     @Test
-    public void testTestToStringContainsCorrectLabelsAndDataCallsAssertions (@Mocked Assert mockedAssert) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
+    public void testTestToStringContainsCorrectLabelsAndDataCallsAssertions() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
         Class jobTestClass = getClassByName("test.JobTest");
         JobTest jobTest = (JobTest) jobTestClass.getConstructor().newInstance();
         Method testToStringContainsCorrectLabelsAndDataMethod = jobTestClass.getMethod("testToStringContainsCorrectLabelsAndData");
 
         new Expectations() {{
-            Assert.assertEquals(anyString, anyString); minTimes = 1;
+            Assert.assertEquals(anyString, anyString);
         }};
 
         testToStringContainsCorrectLabelsAndDataMethod.invoke(jobTest);
@@ -114,11 +118,11 @@ public class TestTaskFive extends AbstractTest {
     public void testToStringContainsCorrectLabelsAndData() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
         Job job = createJob("Web Developer", "LaunchCode", "StL", "Back-end developer", "Java");
         String jobString = getJobString(job);
-        assertEquals(jobString, job.toString());
+        Assert.assertEquals(jobString, job.toString());
     }
 
     @Test
-    public void testTestToStringHandlesEmptyFieldExists () throws ClassNotFoundException {
+    public void testTestToStringHandlesEmptyFieldExists() throws ClassNotFoundException {
         Class jobTestClass = getClassByName("test.JobTest");
         Method testToStringHandlesEmptyField = null;
 
@@ -130,13 +134,14 @@ public class TestTaskFive extends AbstractTest {
     }
 
     @Test
-    public void testTestToStringHandlesEmptyFieldCallsToString (@Mocked Job job) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public void testTestToStringHandlesEmptyFieldCallsToString(@Mocked Job job) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         Class jobTestClass = getClassByName("test.JobTest");
         JobTest jobTest = (JobTest) jobTestClass.getConstructor().newInstance();
         Method testToStringHandlesEmptyField = jobTestClass.getMethod("testToStringHandlesEmptyField");
 
         new Expectations() {{
-            job.toString(); minTimes = 1;
+            job.toString();
+            minTimes = 1;
         }};
 
         try {
@@ -147,14 +152,11 @@ public class TestTaskFive extends AbstractTest {
     }
 
     @Test
-    public void testTestToStringHandlesEmptyFieldCallsAssertions (@Mocked Assert mockedAssert) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
+    public void testTestToStringHandlesEmptyFieldCallsAssertions(@Mocked Assert mockedAssert) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
         Class jobTestClass = getClassByName("test.JobTest");
         JobTest jobTest = (JobTest) jobTestClass.getConstructor().newInstance();
         Method testToStringHandlesEmptyField = jobTestClass.getMethod("testToStringHandlesEmptyField");
 
-        new Expectations() {{
-            Assert.assertEquals(anyString, anyString); minTimes = 1;
-        }};
 
         testToStringHandlesEmptyField.invoke(jobTest);
     }
