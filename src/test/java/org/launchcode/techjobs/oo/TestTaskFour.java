@@ -21,7 +21,7 @@ public class TestTaskFour extends AbstractTest {
     JobTest jobTest;
 
     @Test
-    public void testTestSettingJobIdExists () throws ClassNotFoundException {
+    public void testTestSettingJobIdExists() throws ClassNotFoundException {
         Class jobTestClass = getClassByName("test.JobTest");
         Method testSettingJobIdMethod = null;
 
@@ -33,14 +33,16 @@ public class TestTaskFour extends AbstractTest {
     }
 
     @Test
-    public void testTestSettingJobIdCallsJobConstructorTwice (@Mocked Job job) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public void testTestSettingJobIdCallsJobConstructorTwice(@Mocked Job job) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         Class jobTestClass = getClassByName("test.JobTest");
         JobTest jobTest = (JobTest) jobTestClass.getConstructor().newInstance();
         Method testSettingJobIdMethod = jobTestClass.getMethod("testSettingJobId");
 
 
         new Expectations() {{
-            new Job(); minTimes = 2; maxTimes = 2;
+            new Job();
+            minTimes = 2;
+            maxTimes = 2;
         }};
 
         try {
@@ -65,7 +67,7 @@ public class TestTaskFour extends AbstractTest {
 //    }
 
     @Test
-    public void testTestJobConstructorSetsAllFieldsExists () throws ClassNotFoundException {
+    public void testTestJobConstructorSetsAllFieldsExists() throws ClassNotFoundException {
         Class jobTestClass = getClassByName("test.JobTest");
         Method testSettingJobIdMethod = null;
 
@@ -77,20 +79,22 @@ public class TestTaskFour extends AbstractTest {
     }
 
     @Test
-    public void testTestJobConstructorSetsAllFieldsCallsAsserts (@Mocked Assert mockedAssert) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testTestJobConstructorSetsAllFieldsCallsAsserts(@Mocked Assert mockedAssert) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Class jobTestClass = getClassByName("test.JobTest");
         Method testJobConstructorSetsAllFieldsMethod = jobTestClass.getMethod("testJobConstructorSetsAllFields");
 
         new Expectations() {{
-            Assert.assertTrue(anyBoolean); minTimes = 5;
-            Assert.assertEquals(anyString, anyString); minTimes = 5;
+            Assert.assertTrue(anyBoolean);
+            minTimes = 5;
+            Assert.assertEquals(anyString, anyString);
+            minTimes = 5;
         }};
 
         testJobConstructorSetsAllFieldsMethod.invoke(jobTest);
     }
 
     @Test
-    public void testTestJobsForEqualityExists () throws ClassNotFoundException {
+    public void testTestJobsForEqualityExists() throws ClassNotFoundException {
         Class jobTestClass = getClassByName("test.JobTest");
 
         try {
